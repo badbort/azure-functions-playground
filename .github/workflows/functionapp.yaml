@@ -9,7 +9,7 @@ on:
       - TestFunctionApp/**/*
 
 env:
-  AZURE_FUNCTIONAPP_NAME: silly-function-app
+  AZURE_FUNCTIONAPP_NAME: func-githubmigration
   AZURE_FUNCTIONAPP_RESOURCEGROUP: github-migration-npe
   AZURE_FUNCTION_APP_PACKAGE_PATH: './TestFunctionApp'
   DOTNET_VERSION: '6.0.*'
