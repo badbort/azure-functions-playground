@@ -12,7 +12,7 @@ public class UpdatePipelinesReport : BaseReportsFunction
     {
     }
 
-    [Function("UpdatePipelinesReport")]
+    [Function("SillyFunction")]
     public async Task Run([TimerTrigger("0 */30 * * * *", RunOnStartup = true)] TimerInfo timerInfo, FunctionContext executionContext)
     {
         await Task.Delay(1000);
