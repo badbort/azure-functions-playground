@@ -52,7 +52,7 @@ jobs:
           dotnet build '${{ env.AZURE_FUNCTION_APP_PACKAGE_PATH }}' --configuration Release --output '${{ env.AZURE_FUNCTION_APP_PACKAGE_PATH }}/output'
 
       - name: Test
-        run: dotnet test '${{ env.AZURE_FUNCTION_APP_PACKAGE_PATH }}' --no-restore
+        run: dotnet test '${{ env.SOLUTION }}' --no-restore
 
       - name: 🚀 Deploy Azure Functions App 
         uses: Azure/functions-action@v1
