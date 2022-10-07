@@ -57,6 +57,6 @@ jobs:
         uses: Azure/functions-action@v1
         with:
           app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
-          package: '${{ env.AZURE_FUNCTION_APP_PACKAGE_PATH }}'
+          package: '${{ env.AZURE_FUNCTION_APP_PACKAGE_PATH }}/output'
           publish-profile: ${{ env.FUNCTION_APP_PUB_PROFILE }}
           respect-funcignore: true
