@@ -12,7 +12,7 @@ on:
       - TestFunctionApp/**/*
 
 env:
-  SOLUTION: ./TestFunctionApp
+  SOLUTION_DIR: ./
   AZURE_FUNCTIONAPP_NAME: func-githubmigration
   AZURE_FUNCTIONAPP_RESOURCEGROUP: github-migration-npe
   AZURE_FUNCTION_APP_PACKAGE_PATH: './TestFunctionApp'
@@ -52,7 +52,7 @@ jobs:
           dotnet build '${{ env.AZURE_FUNCTION_APP_PACKAGE_PATH }}' --configuration Release --output '${{ env.AZURE_FUNCTION_APP_PACKAGE_PATH }}/output'
 
       - name: Test
-        run: dotnet test '${{ env.SOLUTION }}' --no-restore
+        run: dotnet test '${{ env.SOLUTION_DIR }}' --no-restore
 
       - name: 🚀 Deploy Azure Functions App 
         uses: Azure/functions-action@v1
