@@ -3,8 +3,11 @@ name: Staging build, test & deploy app
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
+    paths:
+      - TestFunctionApp/**/*
+
+  pull_request:
+    branches: [main]
     paths:
       - TestFunctionApp/**/*
 
@@ -47,8 +50,12 @@ jobs:
         run: |
           dotnet build '${{ env.AZURE_FUNCTION_APP_PACKAGE_PATH }}' --configuration Release --output '${{ env.AZURE_FUNCTION_APP_PACKAGE_PATH }}/output'
 
-      - name: 🚀 Deploy Azure Functions App
+      - name: Test
+        run: dotnet test --no-restore
+
+      - name: 🚀 Deploy Azure Functions App 
         uses: Azure/functions-action@v1
+        if: github.ref == 'refs/heads/main'
         with:
           app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
           package: '${{ env.AZURE_FUNCTION_APP_PACKAGE_PATH }}/output'
