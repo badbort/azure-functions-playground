@@ -59,7 +59,7 @@ jobs:
         with:
           app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
           package: '${{ env.AZURE_FUNCTION_APP_PACKAGE_PATH }}/output'
-          publish-profile: ${{ env.FUNCTION_APP_PUB_PROFILE }}
+          #publish-profile: ${{ env.FUNCTION_APP_PUB_PROFILE }}
           respect-funcignore: true
 
       - name: Debug
