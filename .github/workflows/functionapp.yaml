@@ -52,6 +52,7 @@ jobs:
         run: |
           echo "FUNCTION_APP_PUB_PROFILE=$(az functionapp deployment list-publishing-profiles --resource-group $AZURE_FUNCTIONAPP_RESOURCEGROUP --name $AZURE_FUNCTIONAPP_NAME --xml)" >> $GITHUB_ENV
           echo "$FUNCTION_APP_PUB_PROFILE"
+          ls -R
 
       - name: 🚀 Deploy Azure Functions App
         uses: Azure/functions-action@v1
@@ -60,3 +61,7 @@ jobs:
           package: '${{ env.AZURE_FUNCTION_APP_PACKAGE_PATH }}/output'
           publish-profile: ${{ env.FUNCTION_APP_PUB_PROFILE }}
           respect-funcignore: true
+
+      - name: Debug
+        run: |
+          ls -R
