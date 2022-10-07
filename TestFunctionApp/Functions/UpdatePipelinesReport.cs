@@ -19,6 +19,7 @@ public class UpdatePipelinesReport : BaseReportsFunction
         Logger.LogInformation("Hello");
         await Task.Delay(1000);
         Logger.LogInformation("World!");
+        Logger.LogInformation("Test 123");
         Logger.LogInformation($"Fred={Settings.Fred}");
     }
 }
